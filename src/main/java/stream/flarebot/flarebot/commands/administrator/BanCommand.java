@@ -25,7 +25,7 @@ public class BanCommand implements Command {
                 User user = MessageUtils.getUser(args[0]);
                 if (user == null) {
                     channel.sendMessage(new EmbedBuilder()
-                            .setDescription("We cannot find that user! Try their ID if you didn't already.")
+                            .setDescription("I cannot find that user! Try their ID if you didn't already.")
                             .setColor(Color.red).build()).queue();
                     return;
                 }
@@ -43,7 +43,7 @@ public class BanCommand implements Command {
                 channel.getGuild().getController().ban(channel.getGuild().getMember(user), 7 /*, reason*/).queue();
             } else {
                 channel.sendMessage(new EmbedBuilder()
-                        .setDescription("We can't ban users! Make sure we have the `Ban Members` permission!")
+                        .setDescription("I can't ban users! Make sure we have the `Ban Members` permission!")
                         .setColor(Color.red).build()).queue();
             }
         } else {

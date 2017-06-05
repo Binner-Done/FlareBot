@@ -63,7 +63,7 @@ public class InfoCommand implements Command {
                     return;
                 }
             }
-            MessageUtils.sendErrorMessage("That piece of information could not be found!", channel);
+            MessageUtils.sendErrorMessage("Sorry! That piece of information could not be found!", channel);
         }
     }
 

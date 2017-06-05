@@ -72,7 +72,7 @@ public class PollCommand implements Command {
             if (args[0].equalsIgnoreCase("create")) {
                 if (manager.getPolls().containsKey(channel.getGuild().getId()) && manager
                         .getPollFromGuild(channel.getGuild()).isOpen()) {
-                    MessageUtils.sendErrorMessage("Close current poll, also make this message better", channel);
+                    MessageUtils.sendErrorMessage("You already have a poll running! To create a new one, please close the running poll.", channel);
                 } else {
                     String question = MessageUtils.getMessage(args, 1);
                     manager.getPolls().put(guildId, new Poll(question));
@@ -95,7 +95,7 @@ public class PollCommand implements Command {
                             poll.setColor(Color.decode(args[2]));
                             manager.getPolls().put(guildId, poll);
                             channel.sendMessage(new EmbedBuilder().setColor(Color.decode(args[2]))
-                                    .setDescription("Changed the color of the poll to `" + args[2] + "`")
+                                    .setDescription("I changed the color of the poll to `" + args[2] + "`")
                                     .build()).queue();
                         } catch (NumberFormatException e) {
                             MessageUtils.sendErrorMessage("That is not a valid color input!", channel);
@@ -114,7 +114,7 @@ public class PollCommand implements Command {
                             Poll poll = manager.getPolls().get(channel.getGuild().getId());
                             poll.getPollOptions().add(new PollOption(option));
                             manager.getPolls().put(guildId, poll);
-                            channel.sendMessage("Added the option `" + option + "` to the poll!").queue();
+                            channel.sendMessage("I added the option `" + option + "` to the poll!").queue();
                         } else {
                             MessageUtils.sendErrorMessage("Usage: `poll options add (option)`", channel);
                         }

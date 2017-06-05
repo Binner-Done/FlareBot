@@ -23,7 +23,7 @@ public class UserInfoCommand implements Command {
             user = MessageUtils.getUser(MessageUtils.getMessage(args, 0));
 
         if (user == null) {
-            MessageUtils.sendErrorMessage("We cannot find that user!", channel);
+            MessageUtils.sendErrorMessage("I cannot find that user!", channel);
             return;
         }
         String id = user.getId();

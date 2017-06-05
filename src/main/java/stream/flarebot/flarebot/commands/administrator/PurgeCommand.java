@@ -34,12 +34,12 @@ public class PurgeCommand implements Command {
             try {
                 count = Integer.parseInt(args[0]) + 1;
             } catch (NumberFormatException e) {
-                MessageUtils.sendErrorMessage("The number entered is too high!", channel);
+                MessageUtils.sendErrorMessage("The number you entered is too high!", channel);
                 return;
             }
             if (count < 2) {
                 channel.sendMessage(MessageUtils.getEmbed(sender)
-                        .setDescription("Can't purge less than 2 messages!").build()).queue();
+                        .setDescription("I can't purge less than 2 messages!").build()).queue();
             }
             List<Permission> perms = channel.getGuild().getSelfMember().getPermissions(channel);
             if (perms.contains(Permission.MESSAGE_HISTORY) && perms.contains(Permission.MESSAGE_MANAGE)) {
@@ -71,7 +71,7 @@ public class PurgeCommand implements Command {
                         else toDelete.forEach(mssage -> mssage.delete().complete());
                     }
                     channel.sendMessage(MessageUtils.getEmbed(sender)
-                            .setDescription(String.format("Deleted `%s` messages!", i)).build())
+                            .setDescription(String.format("I deleted `%s` messages!", i)).build())
                             .queue(s -> new FlarebotTask("Delete Message " + s) {
                                 @Override
                                 public void run() {
@@ -81,7 +81,7 @@ public class PurgeCommand implements Command {
                 } catch (Exception e) {
                     channel.sendMessage(MessageUtils.getEmbed(sender)
                             .setDescription(String
-                                    .format("Failed to bulk delete or load messages! Error: `%s`", e))
+                                    .format("I failed to bulk delete or load messages! Error: `%s`", e))
                             .build()).queue();
                 }
             } else {

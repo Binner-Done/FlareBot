@@ -68,7 +68,7 @@ public class WelcomeCommand implements Command {
                     }
                     Welcome welcome = flareBot.getWelcomeForGuild(channel.getGuild());
                     welcome.setMessage(msg);
-                    channel.sendMessage("Set welcome message to ```" + msg + "```").queue();
+                    channel.sendMessage("I set the welcome message to ```" + msg + "```").queue();
                 } else {
                     channel.sendMessage("Welcomes are not enabled!").queue();
                 }

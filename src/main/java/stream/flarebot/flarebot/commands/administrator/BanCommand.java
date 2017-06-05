@@ -43,7 +43,7 @@ public class BanCommand implements Command {
                 channel.getGuild().getController().ban(channel.getGuild().getMember(user), 7 /*, reason*/).queue();
             } else {
                 channel.sendMessage(new EmbedBuilder()
-                        .setDescription("We can't ban users! Make sure we have the `Ban Members` permission!")
+                        .setDescription("We can't ban users! Make sure I have the `Ban Members` permission!")
                         .setColor(Color.red).build()).queue();
             }
         } else {

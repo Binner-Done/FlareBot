@@ -67,7 +67,7 @@ public class AutoModCommand implements Command {
                 } else if (args[1].equalsIgnoreCase("reset")) {
                     FlareBotManager.getInstance().getAutoModConfig(channel.getGuild().getId()).resetPunishments();
                     channel.sendMessage(new EmbedBuilder().setColor(Color.green)
-                            .setDescription("Reset the punishments back to default")
+                            .setDescription("I reset the punishments back to default")
                             .build()).queue();
                 } else {
                     MessageUtils.getUsage(this, channel).queue();
@@ -100,7 +100,7 @@ public class AutoModCommand implements Command {
                         FlareBotManager.getInstance().getAutoModConfig(channel.getGuild().getId()).getWhitelist(action)
                                 .add(whitelist);
                         channel.sendMessage(new EmbedBuilder().setColor(Color.green)
-                                .setDescription("Added `" + whitelist + "` to the `" + action
+                                .setDescription("I added `" + whitelist + "` to the `" + action
                                         .getNameWithUnderscore() + "` whitelist!")
                                 .build()).queue();
                     } else {
@@ -110,7 +110,7 @@ public class AutoModCommand implements Command {
                             sb.append(a.getNameWithUnderscore()).append("\n");
                         }
                         MessageUtils
-                                .sendErrorMessage("Invalid action! Possible actions you can add a whitelist to are:\n```\n" + sb
+                                .sendErrorMessage("That is an invalid action! Possible actions you can add a whitelist to are:\n```\n" + sb
                                         .toString() + "\n```", channel);
                     }
                 }

@@ -57,7 +57,7 @@ public class AutoAssignCommand implements Command {
             if (args[0].equalsIgnoreCase("add")) {
                 if (!validRole(channel.getGuild(), passedRole)) {
                     MessageUtils.sendErrorMessage(MessageUtils.getEmbed(sender).setDescription(sender
-                            .getAsMention() + " That is not a valid role!"), channel);
+                            .getAsMention() + ", that is not a valid role!"), channel);
                     return;
                 }
                 Role role = getRole(channel.getGuild(), passedRole);
@@ -68,7 +68,7 @@ public class AutoAssignCommand implements Command {
                     roles.add(role.getId());
                     flareBot.getAutoAssignRoles().put(channel.getGuild().getId(), roles);
                     channel.sendMessage(MessageUtils.getEmbed(sender)
-                            .setDescription("Added " + role
+                            .setDescription("I added " + role
                                     .getName() + " to your auto assigned roles!").build())
                             .queue();
                 } else {
@@ -78,7 +78,7 @@ public class AutoAssignCommand implements Command {
             } else if (args[0].equalsIgnoreCase("remove")) {
                 if (!validRole(channel.getGuild(), passedRole)) {
                     MessageUtils.sendErrorMessage(MessageUtils.getEmbed(sender).setDescription(sender
-                            .getAsMention() + " That is not a valid role!"), channel);
+                            .getAsMention() + ", that is not a valid role!"), channel);
                     return;
                 }
                 Role role = getRole(channel.getGuild(), passedRole);
@@ -88,7 +88,7 @@ public class AutoAssignCommand implements Command {
                     if (roles.contains(role.getId())) {
                         roles.remove(role.getId());
                         channel.sendMessage(MessageUtils.getEmbed(sender)
-                                .setDescription("Removed " + role
+                                .setDescription("I removed " + role
                                         .getName() + " from your auto assigned roles")
                                 .build()).queue();
                     } else {

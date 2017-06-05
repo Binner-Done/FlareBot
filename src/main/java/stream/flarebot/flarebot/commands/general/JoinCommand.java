@@ -18,7 +18,7 @@ public class JoinCommand implements Command {
     public void onCommand(User sender, TextChannel channel, Message message, String[] args, Member member) {
         if (member.getVoiceState().inVoiceChannel()) {
             if (channel.getGuild().getAudioManager().isAttemptingToConnect()) {
-                channel.sendMessage("Currently connecting to a voice channel! Try again soon!").queue();
+                channel.sendMessage("I am Currently connecting to a voice channel! Try again soon!").queue();
                 return;
             }
             if (channel.getGuild().getSelfMember().getVoiceState().inVoiceChannel() && !channel.getGuild()

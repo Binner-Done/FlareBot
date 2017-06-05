@@ -34,12 +34,12 @@ public class PermissionsCommand implements Command {
                 Member user = Parser.mention(args[1], channel.getGuild());
                 if (user == null) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such user!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such user!"), channel);
                     return;
                 }
                 if (!getPermissions(channel).hasGroup(args[2])) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such group!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such group!"), channel);
                     return;
                 }
                 Group group = getPermissions(channel).getGroup(args[2]);
@@ -58,12 +58,12 @@ public class PermissionsCommand implements Command {
                 Member user2 = Parser.mention(args[1], channel.getGuild());
                 if (user2 == null) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such user!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such user!"), channel);
                     return;
                 }
                 if (!getPermissions(channel).hasGroup(args[2])) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such group!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such group!"), channel);
                     return;
                 }
                 Group group2 = getPermissions(channel).getGroup(args[2]);
@@ -87,7 +87,7 @@ public class PermissionsCommand implements Command {
                 Member iUser = Parser.mention(args[1], channel.getGuild());
                 if (iUser == null) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such user!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such user!"), channel);
                     return;
                 }
                 User toList = getPermissions(channel).getUser(iUser);
@@ -108,7 +108,7 @@ public class PermissionsCommand implements Command {
                     channel.sendMessage("Success").queue();
                 else
                     MessageUtils.sendErrorMessage(MessageUtils.getEmbed(sender)
-                            .setDescription("Group already had that permission"), channel);
+                            .setDescription("That group already had that permission"), channel);
                 break;
             case "remove":
                 if (args.length < 3) {
@@ -120,7 +120,7 @@ public class PermissionsCommand implements Command {
                     channel.sendMessage("Success").queue();
                 else
                     MessageUtils.sendErrorMessage(MessageUtils.getEmbed(sender)
-                            .setDescription("Group never had that permission"), channel);
+                            .setDescription("That group never had that permission"), channel);
                 break;
             case "list":
                 if (args.length < 2) {
@@ -129,7 +129,7 @@ public class PermissionsCommand implements Command {
                 }
                 if (!getPermissions(channel).hasGroup(args[1])) {
                     MessageUtils
-                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("No such group!"), channel);
+                            .sendErrorMessage(MessageUtils.getEmbed(sender).setDescription("There is no such group!"), channel);
                     return;
                 }
                 Group group5 = getPermissions(channel).getGroup(args[1]);
@@ -144,7 +144,7 @@ public class PermissionsCommand implements Command {
                     try {
                         FlareBot.getInstance().getPermissions().save();
                     } catch (IOException e) {
-                        MessageUtils.sendException("Could not save permissions!", e, channel);
+                        MessageUtils.sendException("I could not save permissions!", e, channel);
                     }
                 break;
             default:
